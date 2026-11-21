@@ -1,0 +1,159 @@
+priority,check_id,issue,resource,type,file,line
+High,CKV_AWS_17,Ensure all data stored in RDS is not publicly accessible,aws_db_instance.default,aws_db_instance,db-app.tf,1
+High,CKV_AWS_39,Ensure Amazon EKS public endpoint disabled,aws_eks_cluster.eks_cluster,aws_eks_cluster,eks.tf,118
+High,CKV_AWS_38,Ensure Amazon EKS public endpoint not accessible to 0.0.0.0/0,aws_eks_cluster.eks_cluster,aws_eks_cluster,eks.tf,118
+High,CKV_AWS_260,Ensure no security groups allow ingress from 0.0.0.0:0 to port 80,aws_security_group.web-node,aws_security_group,ec2.tf,77
+High,CKV_AWS_24,Ensure no security groups allow ingress from 0.0.0.0:0 to port 22,aws_security_group.web-node,aws_security_group,ec2.tf,77
+High,CKV_AWS_382,Ensure no security groups allow egress from 0.0.0.0:0 to port -1,aws_security_group.web-node,aws_security_group,ec2.tf,77
+High,CKV_AWS_382,Ensure no security groups allow egress from 0.0.0.0:0 to port -1,aws_security_group_rule.egress,aws_security_group_rule,db-app.tf,145
+High,CKV_AWS_130,Ensure VPC subnets do not assign public IP by default,aws_subnet.web_subnet,aws_subnet,ec2.tf,135
+High,CKV_AWS_130,Ensure VPC subnets do not assign public IP by default,aws_subnet.web_subnet2,aws_subnet,ec2.tf,155
+High,CKV_AWS_130,Ensure VPC subnets do not assign public IP by default,aws_subnet.eks_subnet1,aws_subnet,eks.tf,62
+High,CKV_AWS_130,Ensure VPC subnets do not assign public IP by default,aws_subnet.eks_subnet2,aws_subnet,eks.tf,90
+Medium,CKV_AWS_41,Ensure no hard coded AWS access key and secret key exists in provider,aws.plain_text_access_keys_provider,aws,providers.tf,7
+Medium,CKV_AWS_16,Ensure all data stored in the RDS is securely encrypted at rest,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Medium,CKV_AWS_189,Ensure EBS Volume is encrypted by KMS using a customer managed Key (CMK),aws_ebs_volume.web_host_storage,aws_ebs_volume,ec2.tf,34
+Medium,CKV_AWS_3,Ensure all data stored in the EBS is securely encrypted,aws_ebs_volume.web_host_storage,aws_ebs_volume,ec2.tf,34
+Medium,CKV_AWS_136,Ensure that ECR repositories are encrypted using KMS,aws_ecr_repository.repository,aws_ecr_repository,ecr.tf,1
+Medium,CKV_AWS_58,Ensure EKS Cluster has Secrets Encryption Enabled,aws_eks_cluster.eks_cluster,aws_eks_cluster,eks.tf,118
+Medium,CKV_AWS_228,Verify Elasticsearch domain is using an up to date TLS policy,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Medium,CKV_AWS_5,Ensure all data stored in the Elasticsearch is securely encrypted at rest,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Medium,CKV_AWS_247,Ensure all data stored in the Elasticsearch is encrypted with a CMK,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Medium,CKV_AWS_127,Ensure that Elastic Load Balancer(s) uses SSL certificates provided by AWS Certificate Manager,aws_elb.weblb,aws_elb,elb.tf,2
+Medium,CKV_AWS_376,Ensure AWS Elastic Load Balancer listener uses TLS/SSL,aws_elb.weblb,aws_elb,elb.tf,2
+Medium,CKV_AWS_8,Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted,aws_instance.db_app,aws_instance,db-app.tf,243
+Medium,CKV_AWS_46,Ensure no hard-coded secrets exist in EC2 user data,aws_instance.web_host,aws_instance,ec2.tf,1
+Medium,CKV_AWS_8,Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted,aws_instance.web_host,aws_instance,ec2.tf,1
+Medium,CKV_AWS_173,Check encryption settings for Lambda environmental variable,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Medium,CKV_AWS_45,Ensure no hard-coded secrets exist in lambda environment,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Medium,CKV_AWS_347,Ensure Neptune is encrypted by KMS using a customer managed Key (CMK),aws_neptune_cluster.default,aws_neptune_cluster,neptune.tf,1
+Medium,CKV_AWS_44,Ensure Neptune storage is securely encrypted,aws_neptune_cluster.default,aws_neptune_cluster,neptune.tf,1
+Medium,CKV_AWS_279,Ensure Neptune snapshot is securely encrypted,aws_neptune_cluster_snapshot.default,aws_neptune_cluster_snapshot,neptune.tf,41
+Medium,CKV_AWS_280,Ensure Neptune snapshot is encrypted by KMS using a customer managed Key (CMK),aws_neptune_cluster_snapshot.default,aws_neptune_cluster_snapshot,neptune.tf,41
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Medium,CKV_AWS_96,Ensure all data stored in Aurora is securely encrypted at rest,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Medium,CKV_AWS_327,Ensure RDS Clusters are encrypted using KMS CMKs,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Medium,CKV_AWS_186,Ensure S3 bucket Object is encrypted by KMS using a customer managed Key (CMK),aws_s3_bucket_object.data_object,aws_s3_bucket_object,s3.tf,23
+Low,CKV_AWS_161,Ensure RDS database has IAM authentication enabled,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_293,Ensure that AWS database instances have deletion protection enabled,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_157,Ensure that RDS instances have Multi-AZ enabled,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_129,Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_133,Ensure that RDS instances has backup policy,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_226,Ensure DB instance gets all minor upgrades automatically,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_118,Ensure that enhanced monitoring is enabled for Amazon RDS instances,aws_db_instance.default,aws_db_instance,db-app.tf,1
+Low,CKV_AWS_163,Ensure ECR image scanning on push is enabled,aws_ecr_repository.repository,aws_ecr_repository,ecr.tf,1
+Low,CKV_AWS_51,Ensure ECR Image Tags are immutable,aws_ecr_repository.repository,aws_ecr_repository,ecr.tf,1
+Low,CKV_AWS_37,Ensure Amazon EKS control plane logging is enabled for all log types,aws_eks_cluster.eks_cluster,aws_eks_cluster,eks.tf,118
+Low,CKV_AWS_137,Ensure that Elasticsearch is configured inside a VPC,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Low,CKV_AWS_317,Ensure Elasticsearch Domain Audit Logging is enabled,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Low,CKV_AWS_248,Ensure that Elasticsearch is not using the default Security Group,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Low,CKV_AWS_84,Ensure Elasticsearch Domain Logging is enabled,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Low,CKV_AWS_318,Ensure Elasticsearch domains are configured with at least three dedicated master nodes for HA,aws_elasticsearch_domain.monitoring-framework,aws_elasticsearch_domain,es.tf,1
+Low,CKV_AWS_92,Ensure the ELB has access logging enabled,aws_elb.weblb,aws_elb,elb.tf,2
+Low,CKV_AWS_111,Ensure IAM policies does not allow write access without constraints,aws_iam_policy_document.policy,aws_iam_policy_document,es.tf,30
+Low,CKV_AWS_356,"Ensure no IAM policies documents allow ""*"" as a statement's resource for restrictable actions",aws_iam_policy_document.policy,aws_iam_policy_document,es.tf,30
+Low,CKV_AWS_109,Ensure IAM policies does not allow permissions management / resource exposure without constraints,aws_iam_policy_document.policy,aws_iam_policy_document,es.tf,30
+Low,CKV_AWS_283,Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource,aws_iam_policy_document.policy,aws_iam_policy_document,es.tf,30
+Low,CKV_AWS_288,Ensure IAM policies does not allow data exfiltration,aws_iam_role_policy.ec2policy,aws_iam_role_policy,db-app.tf,206
+Low,CKV_AWS_290,Ensure IAM policies does not allow write access without constraints,aws_iam_role_policy.ec2policy,aws_iam_role_policy,db-app.tf,206
+Low,CKV_AWS_287,Ensure IAM policies does not allow credentials exposure,aws_iam_role_policy.ec2policy,aws_iam_role_policy,db-app.tf,206
+Low,CKV_AWS_289,Ensure IAM policies does not allow permissions management / resource exposure without constraints,aws_iam_role_policy.ec2policy,aws_iam_role_policy,db-app.tf,206
+Low,CKV_AWS_355,"Ensure no IAM policies documents allow ""*"" as a statement's resource for restrictable actions",aws_iam_role_policy.ec2policy,aws_iam_role_policy,db-app.tf,206
+Low,CKV_AWS_273,Ensure access is controlled through SSO and not AWS IAM defined users,aws_iam_user.user,aws_iam_user,iam.tf,1
+Low,CKV_AWS_288,Ensure IAM policies does not allow data exfiltration,aws_iam_user_policy.userpolicy,aws_iam_user_policy,iam.tf,25
+Low,CKV_AWS_290,Ensure IAM policies does not allow write access without constraints,aws_iam_user_policy.userpolicy,aws_iam_user_policy,iam.tf,25
+Low,CKV_AWS_287,Ensure IAM policies does not allow credentials exposure,aws_iam_user_policy.userpolicy,aws_iam_user_policy,iam.tf,25
+Low,CKV_AWS_289,Ensure IAM policies does not allow permissions management / resource exposure without constraints,aws_iam_user_policy.userpolicy,aws_iam_user_policy,iam.tf,25
+Low,CKV_AWS_355,"Ensure no IAM policies documents allow ""*"" as a statement's resource for restrictable actions",aws_iam_user_policy.userpolicy,aws_iam_user_policy,iam.tf,25
+Low,CKV_AWS_286,Ensure IAM policies does not allow privilege escalation,aws_iam_user_policy.userpolicy,aws_iam_user_policy,iam.tf,25
+Low,CKV_AWS_79,Ensure Instance Metadata Service Version 1 is not enabled,aws_instance.db_app,aws_instance,db-app.tf,243
+Low,CKV_AWS_126,Ensure that detailed monitoring is enabled for EC2 instances,aws_instance.db_app,aws_instance,db-app.tf,243
+Low,CKV_AWS_135,Ensure that EC2 is EBS optimized,aws_instance.db_app,aws_instance,db-app.tf,243
+Low,CKV_AWS_79,Ensure Instance Metadata Service Version 1 is not enabled,aws_instance.web_host,aws_instance,ec2.tf,1
+Low,CKV_AWS_126,Ensure that detailed monitoring is enabled for EC2 instances,aws_instance.web_host,aws_instance,ec2.tf,1
+Low,CKV_AWS_135,Ensure that EC2 is EBS optimized,aws_instance.web_host,aws_instance,ec2.tf,1
+Low,CKV_AWS_7,Ensure rotation for customer created CMKs is enabled,aws_kms_key.logs_key,aws_kms_key,kms.tf,1
+Low,CKV_AWS_50,X-Ray tracing is enabled for Lambda,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Low,CKV_AWS_117,Ensure that AWS Lambda function is configured inside a VPC,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Low,CKV_AWS_116,Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ),aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Low,CKV_AWS_272,Ensure AWS Lambda function is configured to validate code-signing,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Low,CKV_AWS_363,Ensure Lambda Runtime is not deprecated,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Low,CKV_AWS_115,Ensure that AWS Lambda function is configured for function-level concurrent execution limit,aws_lambda_function.analysis_lambda,aws_lambda_function,lambda.tf,32
+Low,CKV_AWS_101,Ensure Neptune logging is enabled,aws_neptune_cluster.default,aws_neptune_cluster,neptune.tf,1
+Low,CKV_AWS_359,Neptune DB clusters should have IAM database authentication enabled,aws_neptune_cluster.default,aws_neptune_cluster,neptune.tf,1
+Low,CKV_AWS_362,Neptune DB clusters should be configured to copy tags to snapshots,aws_neptune_cluster.default,aws_neptune_cluster,neptune.tf,1
+Low,CKV_AWS_361,Ensure that Neptune DB cluster has automated backups enabled with adequate retention,aws_neptune_cluster.default,aws_neptune_cluster,neptune.tf,1
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_133,Ensure that RDS instances has backup policy,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app1-rds-cluster,aws_rds_cluster,rds.tf,1
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app2-rds-cluster,aws_rds_cluster,rds.tf,17
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app3-rds-cluster,aws_rds_cluster,rds.tf,33
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app4-rds-cluster,aws_rds_cluster,rds.tf,49
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app5-rds-cluster,aws_rds_cluster,rds.tf,65
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app6-rds-cluster,aws_rds_cluster,rds.tf,81
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app7-rds-cluster,aws_rds_cluster,rds.tf,97
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app8-rds-cluster,aws_rds_cluster,rds.tf,113
+Low,CKV_AWS_313,Ensure RDS cluster configured to copy tags to snapshots,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Low,CKV_AWS_162,Ensure RDS cluster has IAM authentication enabled,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Low,CKV_AWS_326,Ensure that RDS Aurora Clusters have backtracking enabled,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Low,CKV_AWS_325,Ensure that RDS Cluster audit logging is enabled for MySQL engine,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Low,CKV_AWS_139,Ensure that RDS clusters have deletion protection enabled,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Low,CKV_AWS_324,Ensure that RDS Cluster log capture is enabled,aws_rds_cluster.app9-rds-cluster,aws_rds_cluster,rds.tf,130
+Low,CKV_AWS_23,Ensure every security group and rule has a description,aws_security_group.default,aws_security_group,db-app.tf,117
+Low,CKV_AWS_23,Ensure every security group and rule has a description,aws_security_group.web-node,aws_security_group,ec2.tf,77
+Low,CKV_AWS_23,Ensure every security group and rule has a description,aws_security_group_rule.ingress,aws_security_group_rule,db-app.tf,136
+Low,CKV_AWS_23,Ensure every security group and rule has a description,aws_security_group_rule.egress,aws_security_group_rule,db-app.tf,145

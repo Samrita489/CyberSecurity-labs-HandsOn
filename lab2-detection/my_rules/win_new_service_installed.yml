@@ -1,0 +1,21 @@
+title: New Service Installed On System
+id: bd252f3b-95ca-4419-b224-7c50a2299f2d
+status: experimental
+description: Detects installation of a new Windows service. Attackers install services to run code remotely or to persist.
+references:
+  - https://attack.mitre.org/techniques/T1543/003/
+author: Amrita
+date: 2026-11-21
+tags:
+  - attack.persistence
+  - attack.t1543.003
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    EventID: 7045
+  condition: selection
+falsepositives:
+  - Legitimate software installation and updates
+level: medium

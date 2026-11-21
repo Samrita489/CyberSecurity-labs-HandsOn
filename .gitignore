@@ -1,0 +1,9 @@
+.DS_Store
+data/
+chainsaw/
+chainsaw.zip
+venv/
+lab3-cloud/terragoat/
+lab3-cloud/aws-fixed/
+*.pem
+.env

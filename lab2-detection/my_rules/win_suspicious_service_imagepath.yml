@@ -1,0 +1,28 @@
+title: Suspicious Service Installed With Shell Or Script Image Path
+id: f36adc79-6c5a-4f9e-808a-1537cc2fb9d8
+status: experimental
+description: Detects a new service whose image path launches a command shell or script interpreter, a common remote execution technique.
+references:
+  - https://attack.mitre.org/techniques/T1569/002/
+author: Amrita
+date: 2026-11-21
+tags:
+  - attack.execution
+  - attack.t1569.002
+  - attack.persistence
+  - attack.t1543.003
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    EventID: 7045
+    ImagePath|contains:
+      - 'cmd.exe'
+      - 'powershell'
+      - 'wscript'
+      - 'mshta'
+  condition: selection
+falsepositives:
+  - Rare legitimate management tools that launch scripts as services
+level: high

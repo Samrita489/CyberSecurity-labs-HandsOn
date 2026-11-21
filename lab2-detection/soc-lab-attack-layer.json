@@ -1,0 +1,102 @@
+{
+  "name": "SOC Detection Lab - Coverage Map",
+  "versions": {
+    "attack": "17",
+    "navigator": "5.1.0",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques investigated in Splunk (Lab 1) and covered by custom Sigma rules tested with Chainsaw (Lab 2). Green = custom detection rule written and fired on sample data. Blue = observed/hunted in logs, no custom rule yet.",
+  "filters": {
+    "platforms": ["Windows", "Linux"]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false,
+    "expandedSubtechniques": "annotated"
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1070.001",
+      "color": "#31a354",
+      "comment": "Rule: Windows System Event Log Cleared (Event 104) fired on PC01.example.corp. Event 1102 (Security log cleared by user01) confirmed in Splunk and via Chainsaw search. Sigma rules: win_system_log_cleared.yml, win_security_log_cleared.yml.",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "color": "#31a354",
+      "comment": "Rule: New Service Installed On System (Event 7045) fired 3 times: spoolfool, spoolsv, remotesvc. Noisy by design; tuned variant checks ImagePath for shells/scripts.",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1098",
+      "color": "#31a354",
+      "comment": "Rule: Member Added To Local Administrators Group (Event 4732) fired 2 times on MSEDGEWIN10. Guest (RID 501) and Network Service (S-1-5-20) added by IEUser.",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1569.002",
+      "color": "#3182bd",
+      "comment": "Observed in Splunk/Chainsaw: services spoolfool and spoolsv with ImagePath cmd.exe running as LocalSystem. Change to green once the suspicious-ImagePath rule is confirmed firing.",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1036.004",
+      "color": "#3182bd",
+      "comment": "Observed: service named spoolsv imitates the legitimate Print Spooler service name (spoolsv.exe).",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110.001",
+      "color": "#3182bd",
+      "comment": "Hunted in Splunk (Linux_2k.log): 490 failed SSH logins from 47 sources; top source 150.183.249.110 with 80 attempts.",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    }
+  ],
+  "gradient": {
+    "colors": ["#ff6666ff", "#ffe766ff", "#8ec843ff"],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "Custom Sigma rule written and fired on sample data",
+      "color": "#31a354"
+    },
+    {
+      "label": "Hunted/observed in logs (no custom rule yet)",
+      "color": "#3182bd"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "selectVisibleTechniques": false
+}
