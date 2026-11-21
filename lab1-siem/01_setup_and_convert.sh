@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-# Lab 1 setup: download practice data, start Splunk, convert Windows logs for Splunk.
-# Tested on a Mac with an Apple chip. Run from anywhere:  bash 01_setup_and_convert.sh
+
 set -euo pipefail
 
 : "${SPLUNK_PASSWORD:?Set a password first, e.g.  export SPLUNK_PASSWORD='ChooseSomethingStrong1!'}"
