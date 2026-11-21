@@ -1,0 +1,9 @@
+Search Whole log files : index=main source="Linux_2k.log"
+
+Counts failed logins per source: index=main "authentication failure" | rex "rhost=(?<src>\S+)" | stats count by src | sort -count
+
+Account gussed: index=main "authentication failure" rhost=150.183.249.110 | rex "user=(?<target_user>\S+)" | stats count by target_user
+
+Attack Time: index=main "authentication failure" rhost=150.183.249.110 | stats count, earliest(_time) as first_seen, latest(_time) as last_seen | convert ctime(first_seen) ctime(last_seen)
+
+Login Succeed: index=main sshd ("Accepted password" OR "session opened")
